@@ -2,22 +2,15 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".dashboard.ActivityDashboard">
+    tools:context=".feed.view.ActivityDashboard">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/layoutMain"
-        style="@style/ConstraintLayout">
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefresh"
+        style="@style/SwipeRefresh">
 
-        <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/nav_host_fragment"
-            android:name="androidx.navigation.fragment.NavHostFragment"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:defaultNavHost="true"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:navGraph="@navigation/app_nav" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvFeeds"
+            style="@style/RecyclerView"
+            android:paddingBottom="100dp" />
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 </layout>
