@@ -10,9 +10,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.infosys.assignment.R
 import com.infosys.assignment.databinding.ActivityDashboardBinding
-import com.infosys.assignment.feed.adapter.AdapterFeed
 import com.infosys.assignment.feed.model.Feed
-import com.infosys.assignment.feed.viewmodel.ViewModelFeed
 
 class ActivityDashboard : AppCompatActivity() {
     private lateinit var context: Context
