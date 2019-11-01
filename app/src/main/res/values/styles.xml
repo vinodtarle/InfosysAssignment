@@ -8,4 +8,22 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+
+    <style name="ConstraintLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <style name="SwipeRefresh">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <style name="RecyclerView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:scrollbars">vertical</item>
+        <item name="android:clipToPadding">false</item>
+    </style>
+
 </resources>
