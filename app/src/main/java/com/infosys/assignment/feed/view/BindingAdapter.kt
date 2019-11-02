@@ -7,6 +7,11 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
 import com.infosys.assignment.R
 
+/*
+* BindingAdapter for bind Image on ImageView using binding
+* with Glide lib to lezzy loading
+*
+* */
 @BindingAdapter("imageView")
 fun loadImage(view: ImageView, url: String?) {
     if (!url.isNullOrEmpty()) {

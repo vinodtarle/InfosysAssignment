@@ -16,11 +16,18 @@ import com.infosys.assignment.feed.adapter.AdapterFeed
 import com.infosys.assignment.feed.model.FeedResponse
 import com.infosys.assignment.feed.viewmodel.ViewModelFeed
 
+/*
+* Fragment for light weight UI component
+* For showing list of feed using RecyclerView to best scrolling performance
+* this fragment attached with ActivityDashboard class with navigation component
+* */
 class FragmentFeed : Fragment() {
     private lateinit var binding: FragmentFeedBinding
     private lateinit var adapter: AdapterFeed
     private lateinit var providers: ViewModelFeed
 
+
+    // Create view
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -28,7 +35,7 @@ class FragmentFeed : Fragment() {
         this.binding = FragmentFeedBinding.inflate(layoutInflater, container, false)
         this.binding.swipeRefresh.setOnRefreshListener { getFeeds() }
 
-        // Feed Adapter
+        // Feed Adapter one time init
         this.adapter = AdapterFeed(context!!)
         this.binding.rvFeeds.layoutManager = LinearLayoutManager(context)
         this.binding.rvFeeds.setHasFixedSize(true)
@@ -39,6 +46,8 @@ class FragmentFeed : Fragment() {
         return this.binding.root
     }
 
+
+    // Call API to get list of feeds data and set on adapter.
     private fun getFeeds() {
         // Show progressbar
         this.binding.swipeRefresh.isRefreshing = true
@@ -62,7 +71,7 @@ class FragmentFeed : Fragment() {
                     // Hide progressbar
                     this.binding.swipeRefresh.isRefreshing = false
                 } else {
-                    // Show error message
+                    // Show error message when API returns exception
                     Toast.makeText(
                         this.context,
                         getString(R.string.errorSomethingWentWrong),

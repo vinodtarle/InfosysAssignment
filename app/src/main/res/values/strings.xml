@@ -1,11 +1,5 @@
 <resources>
     <string name="app_name">Infosys Assignment</string>
 
-    <string name="msgNoInternet">No internet connection</string>
-    <string name="errorNotFound">Not found</string>
-    <string name="errorServer">Server error</string>
     <string name="errorSomethingWentWrong">Something went wrong try again later.</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

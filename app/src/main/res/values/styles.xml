@@ -8,17 +8,19 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-
+    <!--Main layout-->
     <style name="ConstraintLayout">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
     </style>
 
+    <!--To pull to refresh-->
     <style name="SwipeRefresh">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
     </style>
 
+    <!--Feed list view-->
     <style name="RecyclerView">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
@@ -27,12 +29,12 @@
         <item name="android:paddingBottom">@dimen/recycleViewPaddingBottom</item>
     </style>
 
-
     <style name="TextView">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
     </style>
 
+    <!--Feed title text-->
     <style name="TextViewTitle">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
@@ -41,22 +43,26 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <!--Feed description text-->
     <style name="TextViewDescription">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textColor">@color/colorDescription</item>
     </style>
 
+    <!--right corner arrow image on feed item-->
     <style name="ImageView">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
     </style>
 
+    <!--Feed image banner-->
     <style name="ImageViewBanner">
         <item name="android:layout_width">@dimen/imageBannerWidth</item>
         <item name="android:layout_height">@dimen/imageBannerHeight</item>
     </style>
 
+    <!--Feed item view-->
     <style name="layoutFeed">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>

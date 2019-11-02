@@ -1,14 +1,17 @@
 <resources>
-
+    <!--TextView size for title of feed item-->
     <dimen name="textSize_16">16sp</dimen>
 
+    <!--Margin-->
     <dimen name="margin_5">5dp</dimen>
     <dimen name="margin_10">10dp</dimen>
     <dimen name="padding_10">10dp</dimen>
     <dimen name="padding_20">20dp</dimen>
 
+    <!--ImageView for Feed item banner-->
     <dimen name="imageBannerWidth">120dp</dimen>
     <dimen name="imageBannerHeight">70dp</dimen>
 
+    <!--Recycle view bottom padding for bottom more space -->
     <dimen name="recycleViewPaddingBottom">100dp</dimen>
 </resources>
