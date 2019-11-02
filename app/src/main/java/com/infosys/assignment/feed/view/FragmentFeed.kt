@@ -11,7 +11,6 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.infosys.assignment.R
-import com.infosys.assignment.connection.NetworkConnection.Companion.isInternet
 import com.infosys.assignment.databinding.FragmentFeedBinding
 import com.infosys.assignment.feed.adapter.AdapterFeed
 import com.infosys.assignment.feed.model.FeedResponse
@@ -41,44 +40,35 @@ class FragmentFeed : Fragment() {
     }
 
     private fun getFeeds() {
-        if (isInternet()) {
+        // Show progressbar
+        this.binding.swipeRefresh.isRefreshing = true
 
-            // Show progressbar
-            this.binding.swipeRefresh.isRefreshing = true
+        // Get provider from ViewModel
+        this.providers = ViewModelProviders.of(activity!!)
+            .get(ViewModelFeed::class.java)
 
-            // Get provider from ViewModel
-            this.providers = ViewModelProviders.of(activity!!)
-                .get(ViewModelFeed::class.java)
+        this.providers.getFeed()
+            .observe(viewLifecycleOwner, Observer<FeedResponse> { response ->
+                if (response.rows != null) {
 
-            this.providers.getFeed()
-                .observe(viewLifecycleOwner, Observer<FeedResponse> { response ->
-                    if (response.rows != null) {
+                    // Update actionbar title
+                    this.providers.title(title = response.title)
 
-                        // Update actionbar title
-                        this.providers.title(title = response.title)
+                    // Filter response data base on null
+                    this.adapter.setData(data = response.rows.filter {
+                        !it.title.isNullOrEmpty()
+                    })
 
-                        // Filter response data base on null
-                        this.adapter.setData(data = response.rows.filter {
-                            !it.title.isNullOrEmpty()
-                        })
-
-                        // Hide progressbar
-                        this.binding.swipeRefresh.isRefreshing = false
-                    } else {
-                        // Show error message
-                        Toast.makeText(
-                            this.context,
-                            getString(R.string.errorSomethingWentWrong),
-                            Toast.LENGTH_SHORT
-                        ).show()
-                    }
-                })
-        } else {
-            Toast.makeText(
-                this.context,
-                getString(R.string.msgNoInternet),
-                Toast.LENGTH_SHORT
-            ).show()
-        }
+                    // Hide progressbar
+                    this.binding.swipeRefresh.isRefreshing = false
+                } else {
+                    // Show error message
+                    Toast.makeText(
+                        this.context,
+                        getString(R.string.errorSomethingWentWrong),
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+            })
     }
 }

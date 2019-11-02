@@ -25,6 +25,7 @@
 
             <androidx.appcompat.widget.AppCompatTextView
                 style="@style/TextViewDescription"
+                android:layout_weight="1"
                 android:text="@{feed.description}" />
 
             <androidx.appcompat.widget.AppCompatImageView
