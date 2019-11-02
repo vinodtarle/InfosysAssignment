@@ -18,6 +18,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".feed.view.ActivityDashboard">
             <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
