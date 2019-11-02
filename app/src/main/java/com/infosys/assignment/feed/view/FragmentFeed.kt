@@ -48,9 +48,19 @@ class FragmentFeed : Fragment() {
 
             this.providers.getFeed()
                 .observe(viewLifecycleOwner, Observer<FeedResponse> { response ->
-                    this.providers.title(title = response.title)
-                    this.adapter.setData(data = response.rows)
-                    this.binding.swipeRefresh.isRefreshing = false
+                    if (response.rows != null) {
+                        this.providers.title(title = response.title)
+                        this.adapter.setData(data = response.rows.filter {
+                            !it.title.isNullOrEmpty()
+                        })
+                        this.binding.swipeRefresh.isRefreshing = false
+                    } else {
+                        Toast.makeText(
+                            this.context,
+                            getString(R.string.errorSomethingWentWrong),
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
                 })
         } else {
             Toast.makeText(
