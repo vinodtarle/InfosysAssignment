@@ -1,7 +1,5 @@
 package com.infosys.assignment.feed.model
 
-data class FeedResponse(
-    val title: String = "",
-    val rows: List<Feed>? = null,
-    val throwable: Throwable? = null
-)
+import java.util.*
+
+class FeedResponse(val title: String = "", val rows: ArrayList<Feed>)

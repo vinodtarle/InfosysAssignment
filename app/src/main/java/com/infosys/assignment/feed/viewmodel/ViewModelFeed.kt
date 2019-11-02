@@ -30,7 +30,6 @@ class ViewModelFeed : ViewModel() {
 
                     override fun onError(e: Throwable) {
                         e.printStackTrace()
-                        feeds.value = FeedResponse(throwable = e)
                     }
                 })
         }
