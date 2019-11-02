@@ -26,7 +26,6 @@ class FragmentFeed : Fragment() {
     private lateinit var adapter: AdapterFeed
     private lateinit var providers: ViewModelFeed
 
-
     // Create view
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
