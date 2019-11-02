@@ -13,7 +13,12 @@ import io.reactivex.schedulers.Schedulers
 
 
 class ViewModelFeed : ViewModel() {
+    private val _title = MutableLiveData<String>()
     private var feeds: MutableLiveData<FeedResponse> = MutableLiveData()
+
+    val title: LiveData<String> get() = _title
+
+    fun title(title: String) = _title.postValue(title)
 
     @SuppressLint("CheckResult")
     fun getFeed(): LiveData<FeedResponse> {

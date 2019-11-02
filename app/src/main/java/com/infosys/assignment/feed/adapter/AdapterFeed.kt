@@ -13,13 +13,13 @@ class AdapterFeed internal constructor(
 ) : RecyclerView.Adapter<AdapterFeed.ViewHolder>() {
 
     private val inflater: LayoutInflater = LayoutInflater.from(this.context)
-    private var feeds = emptyList<Feed>()
+    private var data = emptyList<Feed>()
 
     inner class ViewHolder(val binding: ViewFeedBinding) :
         RecyclerView.ViewHolder(binding.layoutMain)
 
-    internal fun setData(feeds: List<Feed>) {
-        this.feeds = feeds
+    internal fun setData(data: List<Feed>) {
+        this.data = data
         notifyDataSetChanged()
     }
 
@@ -30,10 +30,10 @@ class AdapterFeed internal constructor(
     }
 
     override fun onBindViewHolder(@NonNull holder: ViewHolder, position: Int) {
-        holder.binding.feed = this.feeds[position]
+        holder.binding.feed = this.data[position]
     }
 
     override fun getItemCount(): Int {
-        return this.feeds.size
+        return this.data.size
     }
 }
