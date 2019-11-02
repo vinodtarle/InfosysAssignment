@@ -13,47 +13,30 @@
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/layoutMain"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="5dp"
-        android:background="@drawable/style_background"
-        android:orientation="vertical"
-        android:padding="10dp">
+        style="@style/layoutFeed">
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@{feed.title}"
-            android:textColor="@color/colorTitle"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            style="@style/TextViewTitle"
+            android:text="@{feed.title}" />
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@{feed.description}"
-                android:textColor="@color/colorDescription" />
+                style="@style/TextViewDescription"
+                android:text="@{feed.description}" />
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/imageHref"
-                android:layout_width="120dp"
-                android:layout_height="70dp"
+                style="@style/ImageViewBanner"
                 android:layout_marginStart="4dp"
                 android:layout_marginEnd="4dp"
                 android:visibility="@{feed.imageHref != null ? (feed.imageHref.empty ? View.GONE : View.VISIBLE) : View.GONE}"
                 app:imageView="@{feed.imageHref}" />
 
             <androidx.appcompat.widget.AppCompatImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/ImageView"
                 app:srcCompat="@drawable/ic_keyboard_arrow_right" />
         </androidx.appcompat.widget.LinearLayoutCompat>
     </androidx.appcompat.widget.LinearLayoutCompat>

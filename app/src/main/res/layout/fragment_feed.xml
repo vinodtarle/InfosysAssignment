@@ -9,7 +9,6 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvFeeds"
-            style="@style/RecyclerView"
-            android:paddingBottom="100dp" />
+            style="@style/RecyclerView" />
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 </layout>

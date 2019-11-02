@@ -24,6 +24,49 @@
         <item name="android:layout_height">match_parent</item>
         <item name="android:scrollbars">vertical</item>
         <item name="android:clipToPadding">false</item>
+        <item name="android:paddingBottom">@dimen/recycleViewPaddingBottom</item>
+    </style>
+
+
+    <style name="TextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="TextViewTitle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/textSize_16</item>
+        <item name="android:textColor">@color/colorTitle</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextViewDescription">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/colorDescription</item>
+    </style>
+
+    <style name="ImageView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="ImageViewBanner">
+        <item name="android:layout_width">@dimen/imageBannerWidth</item>
+        <item name="android:layout_height">@dimen/imageBannerHeight</item>
+    </style>
+
+    <style name="layoutFeed">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">@dimen/padding_10</item>
+        <item name="android:layout_marginLeft">@dimen/margin_10</item>
+        <item name="android:layout_marginTop">@dimen/margin_5</item>
+        <item name="android:layout_marginRight">@dimen/margin_10</item>
+        <item name="android:layout_marginBottom">@dimen/margin_5</item>
+        <item name="android:background">@drawable/style_background</item>
+        <item name="android:orientation">vertical</item>
     </style>
 
 </resources>

@@ -29,6 +29,7 @@ class FragmentFeed : Fragment() {
         this.binding = FragmentFeedBinding.inflate(layoutInflater, container, false)
         this.binding.swipeRefresh.setOnRefreshListener { getFeeds() }
 
+        // Feed Adapter
         this.adapter = AdapterFeed(context!!)
         this.binding.rvFeeds.layoutManager = LinearLayoutManager(context)
         this.binding.rvFeeds.setHasFixedSize(true)
@@ -41,20 +42,30 @@ class FragmentFeed : Fragment() {
 
     private fun getFeeds() {
         if (isInternet()) {
+
+            // Show progressbar
             this.binding.swipeRefresh.isRefreshing = true
 
+            // Get provider from ViewModel
             this.providers = ViewModelProviders.of(activity!!)
                 .get(ViewModelFeed::class.java)
 
             this.providers.getFeed()
                 .observe(viewLifecycleOwner, Observer<FeedResponse> { response ->
                     if (response.rows != null) {
+
+                        // Update actionbar title
                         this.providers.title(title = response.title)
+
+                        // Filter response data base on null
                         this.adapter.setData(data = response.rows.filter {
                             !it.title.isNullOrEmpty()
                         })
+
+                        // Hide progressbar
                         this.binding.swipeRefresh.isRefreshing = false
                     } else {
+                        // Show error message
                         Toast.makeText(
                             this.context,
                             getString(R.string.errorSomethingWentWrong),

@@ -19,7 +19,7 @@ class ActivityDashboard : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         init()
-        setTitle()
+        setActionbarTitle()
     }
 
     private fun init() {
@@ -27,8 +27,7 @@ class ActivityDashboard : AppCompatActivity() {
         this.binding = DataBindingUtil.setContentView(this, R.layout.activity_dashboard)
     }
 
-
-    private fun setTitle() {
+    private fun setActionbarTitle() {
         ViewModelProviders.of(this)
             .get(ViewModelFeed::class.java)
             .title
