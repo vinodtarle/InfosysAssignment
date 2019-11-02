@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Infosys Assignment</string>
+
+    <string name="msgNoInternet">No internet connection</string>
+    <string name="errorNotFound">Not found</string>
+    <string name="errorServer">Server error</string>
+    <string name="errorSomethingWentWrong">Something went wrong try again later.</string>
 </resources>

@@ -20,6 +20,7 @@ class ActivityDashboard : AppCompatActivity() {
     private val TAG = this.javaClass.simpleName
     private lateinit var context: Context
     private lateinit var binding: ActivityDashboardBinding
+    private lateinit var adapter: AdapterFeed
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,6 +32,10 @@ class ActivityDashboard : AppCompatActivity() {
         this.context = this
         this.binding = DataBindingUtil.setContentView(this, R.layout.activity_dashboard)
         this.binding.swipeRefresh.setOnRefreshListener { bindView() }
+        this.adapter = AdapterFeed(this.context)
+        this.binding.rvFeeds.layoutManager = LinearLayoutManager(context)
+        this.binding.rvFeeds.setHasFixedSize(true)
+        this.binding.rvFeeds.adapter = this.adapter
     }
 
     private fun bindView() {
@@ -40,16 +45,16 @@ class ActivityDashboard : AppCompatActivity() {
                 .get(ViewModelFeed::class.java)
                 .getFeed()
                 .observe(this, Observer<FeedResponse> { response ->
-                    supportActionBar.let { title = response?.title }
-                    val adapter = AdapterFeed(this.context)
-                    this.binding.rvFeeds.layoutManager = LinearLayoutManager(context)
-                    this.binding.rvFeeds.setHasFixedSize(true)
-                    this.binding.rvFeeds.adapter = adapter
-                    this.binding.swipeRefresh.isRefreshing = false
                     adapter.setData(response.rows)
+                    supportActionBar.let { title = response?.title }
+                    this.binding.swipeRefresh.isRefreshing = false
                 })
         } else {
-            Toast.makeText(this.context, "No Internet", Toast.LENGTH_SHORT).show()
+            Toast.makeText(
+                this.context,
+                getString(R.string.msgNoInternet),
+                Toast.LENGTH_SHORT
+            ).show()
         }
     }
 }

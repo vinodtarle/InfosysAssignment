@@ -15,7 +15,6 @@ class AdapterFeed internal constructor(
     private val inflater: LayoutInflater = LayoutInflater.from(this.context)
     private var feeds = emptyList<Feed>()
 
-
     inner class ViewHolder(val binding: ViewFeedBinding) :
         RecyclerView.ViewHolder(binding.layoutMain)
 

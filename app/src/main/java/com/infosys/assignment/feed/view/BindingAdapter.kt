@@ -20,7 +20,6 @@ fun loadImage(view: ImageView, url: String?) {
                     .error(R.drawable.ic_image)
                     .centerCrop()
                     .diskCacheStrategy(DiskCacheStrategy.ALL)
-            )
-            .into(view)
+            ).into(view)
     }
 }
