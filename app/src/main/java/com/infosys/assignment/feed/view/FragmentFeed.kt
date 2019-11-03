@@ -11,6 +11,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.infosys.assignment.R
+import com.infosys.assignment.connection.NetworkConnection
 import com.infosys.assignment.databinding.FragmentFeedBinding
 import com.infosys.assignment.feed.adapter.AdapterFeed
 import com.infosys.assignment.feed.model.FeedResponse
@@ -48,8 +49,16 @@ class FragmentFeed : Fragment() {
 
     // Call API to get list of feeds data and set on adapter.
     private fun getFeeds() {
-        // Show progressbar
-        this.binding.swipeRefresh.isRefreshing = true
+        if (NetworkConnection.hasNetwork(context!!)) {
+            // Show progressbar
+            this.binding.swipeRefresh.isRefreshing = true
+        } else {
+            // Hide progressbar
+            this.binding.swipeRefresh.isRefreshing = false
+
+            // Notify user for no internet connection.
+            Toast.makeText(context, getString(R.string.msgNoInternet), Toast.LENGTH_SHORT).show()
+        }
 
         // Get provider from ViewModel
         this.providers = ViewModelProviders.of(activity!!)

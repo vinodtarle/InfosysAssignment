@@ -20,8 +20,8 @@ import com.bumptech.glide.request.target.Target
 * */
 @BindingAdapter("imageView")
 fun loadImage(view: ImageView, url: String?) {
+    view.visibility = View.GONE
     if (!url.isNullOrEmpty()) {
-        view.visibility = View.GONE
         Glide.with(view.context)
             .load(url)
             .thumbnail(0.5f)
